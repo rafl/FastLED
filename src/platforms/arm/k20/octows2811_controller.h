@@ -28,6 +28,11 @@ class COctoWS2811Controller : public CPixelLEDController<RGB_ORDER, 8, 0xFF> {
   }
 public:
   COctoWS2811Controller() { pocto = NULL; }
+  COctoWS2811Controller(OctoWS2811 *p, uint8_t *db, uint8_t *fb) {
+    pocto = p;
+    drawbuffer = db;
+    framebuffer = fb;
+  }
   virtual int size() { return CLEDController::size() * 8; }
 
   virtual void init() { /* do nothing yet */ }
